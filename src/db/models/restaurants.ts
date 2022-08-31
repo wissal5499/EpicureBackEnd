@@ -3,33 +3,41 @@ import mongoose from 'mongoose';
 
 const restaurantsSchema = new mongoose.Schema(
     {
-      name: {
+      restaurantName: {
+        type: String,
+        required: true
+      },
+      location: {
         type: String,
         required: true
       },
       foundedTime:{
         type: String,
-        require: false
+        required: false
       },
       chef: {
-        type: String,
-        required: true
+        type: Array,
+        required: false
       },
       openingHours: {
-        type: String,
-        require: false
+        type: Number,
+        required: false
       },
       dishes:{
         type: Array,
-        require: false
+        required: false
       },
-      image: {
+      image_src: {
         type: String,
-        require: false
+        required: true
       },
       category: {
         type: String,
-        require: false
+        required: false
+      },
+      stars: {
+        type: String,
+        required: false
       }
     },
     { timestamps: true }

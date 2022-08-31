@@ -5,10 +5,27 @@ import { ChefsService } from "./chefs.service";
 export class RestaurantsService {
 
     public  async getRestaurants() {
-       /* const dal = new RestaurantsDal();
+       const dal = new RestaurantsDal();
         const res = await dal.findAll();
-        return res;*/
-        return  {
+        return res;
+    };
+
+    public async createRestaurant(restaurant:any) {
+        const dal = new RestaurantsDal();
+        const res = dal.createRestaurant(restaurant);
+        return res;
+    };
+
+    public async updateRestaurant(restaurant:any) {
+        // const dal = new RestaurantsDal();
+        // const res = await dal.updateRestaurant(restaurant);
+        // return res;
+    };
+};
+
+
+/*
+ return  {
           container: [{
           name: "Claro",
           chefs: await ChefsService.getChefs(),
@@ -36,7 +53,7 @@ export class RestaurantsService {
                description:"Polenta fingers, veal cheek, magic chili cured lemon cream, yellow laksa",
                price: 78,
                image:"./Images/Restaurants/tiger-lily.svg",
-               type:"lanch",
+               type:"dinner",
                category:"./Images/DishesCategory/VeganSmall.svg"
                }
                ]},
@@ -186,20 +203,4 @@ export class RestaurantsService {
                 ]}     
 ]
         }
-    };
-
-    public async createRestaurant(restaurant:any) {
-        const dal = new RestaurantsDal();
-        const res = dal.createRestaurant(restaurant);
-        return res;
-    };
-
-    public async updateRestaurant(restaurant:any) {
-        const dal = new RestaurantsDal();
-        const res = await dal.updateRestaurant(restaurant);
-        return res;
-    };
-};
-
-
-
+*/

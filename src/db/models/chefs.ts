@@ -1,28 +1,35 @@
 import mongoose from 'mongoose';
-import Restaurants from './restaurants';
 
 const chefsSchema = new mongoose.Schema(
     {
-      name: {
+      chefName: {
         type: String,
         required: true
       },
-      retaurants:{
-        type: Array,
+      category:{
+        type: String,
+        required: false
+      },
+      restaurantName:{
+        type: String,
         required: false
       },
       age: {
         type: Number,
-        required: true
+        required: false
       },
       description: {
         type: String,
         required: false
       },
-      image: {
+      image_src: {
         type: String,
         required: false
       },
+      chef_of_the_week:{
+        type: Boolean,
+        required: false
+      }
     },
     { timestamps: true }
   );

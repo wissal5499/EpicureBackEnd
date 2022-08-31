@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { RestaurantsService } from "../services/restaurants.service";
+import {RestaurantsDal} from '../dal/restaurants.dal'
 
 export class RestaurantsController {
 
@@ -22,5 +23,18 @@ export class RestaurantsController {
         const restaurant = await service.updateRestaurant(params);
         return res.send(restaurant);
     };
+    public static async PushDishToRestaurant(req: Request, res: Response) {
+        const params = req.body;
+        const service = new RestaurantsDal();
+        const restaurant = await service.PushDishToRestaurant(params);
+        return res.send(restaurant);
+    };
+    public static async PushChefToRestaurant(req: Request, res: Response) {
+        const params = req.body;
+        const service = new RestaurantsDal();
+        const restaurant = await service.PushChefToRestaurant(params);
+        return res.send(restaurant);
+    };
+    
 };
 

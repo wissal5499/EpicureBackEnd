@@ -4,8 +4,14 @@ export class ChefsDal {
 
     public async createChef(chef: any) {
         chef = new Chefs({
-          name: chef.name,
+          chefName: chef.chefName,
+          category: chef.category,
+          restaurantName: chef.restaurantName,
+          description: chef.description,
+          image_src: chef.image_src,
+          chef_of_the_week: chef.chef_of_the_week,
           age: chef.age,
+          restaurants: chef.restaurants,
         });
         const response= await Chefs.create(chef);
         return response;
@@ -22,10 +28,22 @@ export class ChefsDal {
         return data
       }
 
-
     public findAll(query: any = null) {
         return Chefs.find(query);
       }
+
+    public async getChef(param: any){
+      const response = await Chefs.aggregate([
+        {$match: {chefName: `${param.chefName}`, age:`${param.age}`}},
+        {$lookup: {
+          from: "restaurants",
+          localField: "restaurants",
+          foreignField: "_id",
+          as: "restaurants"
+        }}
+      ])
+      return response;
+    }
 }
 
 
