@@ -1,14 +1,18 @@
 import { RestaurantsDal } from "../dal/restaurants.dal";
 
-import { ChefsService } from "./chefs.service";
 
 export class RestaurantsService {
 
     public  async getRestaurants() {
        const dal = new RestaurantsDal();
-        const res = await dal.findAll();
+        const res = await dal.getRestaurants();
         return res;
     };
+    // public static async getRestaurant(param: any) {
+    //     const dal = new RestaurantsDal();
+    //     const res = await dal.getRestaurant(param);
+    //     return res;
+    // };
 
     public async createRestaurant(restaurant:any) {
         const dal = new RestaurantsDal();
@@ -22,7 +26,6 @@ export class RestaurantsService {
         // return res;
     };
 };
-
 
 /*
  return  {

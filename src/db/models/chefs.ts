@@ -29,6 +29,10 @@ const chefsSchema = new mongoose.Schema(
       chef_of_the_week:{
         type: Boolean,
         required: false
+      },
+      mostViewd: {
+        type: Boolean,
+        required: false
       }
     },
     { timestamps: true }

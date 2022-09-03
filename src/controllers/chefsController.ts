@@ -8,6 +8,7 @@ export class ChefsController {
         return res.send(chefs);
     };
 
+
     public static async createChef(req: Request, res: Response) {
         const params = req.body;
         const service = new ChefsService();

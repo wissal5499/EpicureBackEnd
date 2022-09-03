@@ -12,11 +12,15 @@ const restaurantsSchema = new mongoose.Schema(
         required: true
       },
       foundedTime:{
-        type: String,
+        type: Number,
         required: false
       },
       chef: {
         type: Array,
+        required: false
+      },
+      chefName: {
+        type: String,
         required: false
       },
       openingHours: {
@@ -36,6 +40,10 @@ const restaurantsSchema = new mongoose.Schema(
         required: false
       },
       stars: {
+        type: Number,
+        required: false
+      },
+      status: {
         type: String,
         required: false
       }

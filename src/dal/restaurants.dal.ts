@@ -10,10 +10,12 @@ export class RestaurantsDal {
           location: restaurant.location,
           foundedTime: restaurant.foundedTime,
           chef: [],
+          chefName: restaurant.chefName,
           openingHours: restaurant.openingHours,
           image_src: restaurant.image_src,
           category: restaurant.category,
           stars: restaurant.stars,
+          status: restaurant.status,
           dishes: [],
         });
 
@@ -24,7 +26,7 @@ export class RestaurantsDal {
     public async updateRestaurant(restaurant:any) {
       await Restaurants.findOne({
         restaurantName: restaurant.restaurantName,
-      }).updateOne({$set: {chef: restaurant.chef,}});
+      }).updateOne({$set: {chefName: restaurant.chefName,}});
         const updatedRestaurants = await Restaurants.find();
         return updatedRestaurants;
     }
@@ -47,4 +49,22 @@ export class RestaurantsDal {
       );
       return data;
     }
+
+    public async getRestaurants(){
+      return Restaurants.aggregate([
+        {$lookup: {
+          from: "dishes",
+          localField: "dishes",
+          foreignField: "_id",
+          as: "dishes"
+        }},
+        {$lookup: {
+          from: "chefs",
+          localField: "chef",
+          foreignField: "_id",
+          as: "chef"
+        }}
+      ])
+    }
 }
+
