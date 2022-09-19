@@ -15,7 +15,6 @@ export class DishesController {
         const dish = await service.createDish(params);
         return res.send(dish);
     }
-    
     public static async updateDish(req: Request , res: Response){
         const params = req.body;
         const service = new DishesService();

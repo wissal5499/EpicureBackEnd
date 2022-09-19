@@ -4,10 +4,10 @@ import { ChefsDal } from "../dal/chefs.dal";
 export class ChefsService {
 
     public static async getChefs() {
+
         const dal = new ChefsDal();
         const res = await dal.findAll();
         return res;
-
     };
 
     public async createChef(chef:any) {
@@ -22,5 +22,6 @@ export class ChefsService {
       //  return res;
     };
 };
+
 
 

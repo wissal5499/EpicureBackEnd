@@ -9,12 +9,6 @@ export class RestaurantsController {
         const restaurants = await service.getRestaurants();
         return res.send(restaurants);
     };
-    // public static async getRestaurant(req: Request, res: Response) {
-    //     const restParam: any = req.body;
-    //     const rest = await RestaurantsService.getRestaurant(restParam);
-    //     return res.send(rest);
-    // };
-
     public static async createRestaurant(req: Request, res: Response) {
         const params = req.body;
         const service = new RestaurantsService();

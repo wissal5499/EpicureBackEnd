@@ -29,6 +29,7 @@ export class ChefsDal {
         return data
       }
 
+
     public findAll(query: any = null) {
         return Chefs.find();
 
